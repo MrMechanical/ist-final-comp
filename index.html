@@ -28,104 +28,125 @@
       background-color: var(--ddd-accent-2);
       color: var(--ddd-primary-17);
     }
+    /* slideshow styles */
+    .slideshow {
+      position: relative;
+      height: 100vh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+    }
+    .slides section {
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+    /* replace slide‐specific backgrounds on portfolio-screen, not .slides section */
+    portfolio-screen:nth-of-type(1) { background-color: navy; }
+    portfolio-screen:nth-of-type(2) { background-color: #0077be; }      /* ocean blue */
+    portfolio-screen:nth-of-type(3) { background-color: #6699cc; }      /* grey blue */
+    portfolio-screen:nth-of-type(4) { background-color: lightgrey; }
+    portfolio-screen:nth-of-type(5) {
+      background-color: white;
+      color: black;
+    }
+    #slide-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    #slide-nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      padding: 0.5rem;
+    }
+    #slide-nav a.active {
+      font-weight: bold;
+      border-bottom: 2px solid #333;
+    }
+    body {
+      margin-top: 3rem; /* leave space for fixed nav */
+    }
+
+    /* hide the fixed nav bar from portfolio-very-theme */
+    portfolio-very-theme nav {
+      display: none;
+    }
+    /* remove the space left for that nav */
+    body {
+      margin-top: 0;
+    }
   </style>
   <title>ist-final-comp</title>
 </head>
 
 <body>
-  <div id="demo">
-    <h1>ist-final-comp</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
-    <ist-final-comp></ist-final-comp>
-    <h2>Slot usage</h2>
-    <ist-final-comp data-accent="2" data-primary="17"><div>Sample slot content</div></ist-final-comp>
-    <h2>Property usage</h2>
-    <ist-final-comp id="example" title="Sample property title"></ist-final-comp>
-  </div>
-  <script type="module" src="./ist-final-comp.js"></script>
 
-  <!-- Take HAX, the Web and you further down the rabbit hole -->
-  <style>
-    #follow-the-white-rabbit {
-      margin: var(--ddd-spacing-4) auto 64px  16px;
-      background-color: var(--ddd-accent-4);
-      color: black;
-    }
-    #follow-the-white-rabbit[open] summary {
-      background-color: var(--ddd-accent-4) !important;
-      color: black;
-    }
-    #follow-the-white-rabbit[open] .content {
-      padding: 0 var(--ddd-spacing-4);
-    }
-    #follow-the-white-rabbit ul,
-    #follow-the-white-rabbit li {
-      padding: 0;
-      margin: 0;
-    }
-    #follow-the-white-rabbit li {
-      font-size: var(--ddd-font-size-xs);
-      list-style: none;
-    }
-    #follow-the-white-rabbit li strong,
-    #follow-the-white-rabbit li a {
-      padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
-      color: black;
-      display: block;
-      font-weight: bold;
-    }
-    #follow-the-white-rabbit li:focus-within a,
-    #follow-the-white-rabbit li:hover a {
-      background-color: black;
-      color: yellow;
-    }
-  </style>
-  <details id="follow-the-white-rabbit" open>
-    <summary>How to Develop</summary>
-    <div class="content">
-      <p>
-      
-        <strong>Checkout project on github:</strong> <a href="https://github.com/MrMechanical/ist-final-comp" target="_blank" rel="nofollow">MrMechanical/ist-final-comp</a>
-        
-      </p>
-      <p>
-        You can edit the current page by modifying <code>index.html</code><br />
-        To edit your <strong>ist-final-comp</strong> tag, modify <code>src/ist-final-comp.js</code>.
-        This file contains all the HTML, CSS and JavaScript used to render your elements above!
-      </p>
-      <p>
-        Web components are easy to follow once you get used to their pattern.
-        Below are links to help on your journey. Good luck, we need you!
-      </p>
+  <script type="module" src="./src/portfolio-very-theme.js"></script>
+  <script type="module" src="./src/portfolio-screen.js"></script>
+  <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/simple-cta/simple-cta.js"></script>
+    <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/scroll-button/scroll-button.js"></script>
+  
+
+  <portfolio-very-theme>
+    <portfolio-screen id="screen-1" title="About" accent="1">
+      <h1>About Me</h1>
+      <p>Brief intro about you…</p>
+    </portfolio-screen>
+
+    <portfolio-screen id="screen-2" title="Skills" accent="2">
+      <h1>Skills</h1>
       <ul>
-        <li><a href="https://haxtheweb.org/documentation/ddd" target="_blank">🧑‍🎨 Learn DDD HAX Design system</a></li>
-        <li><a href="https://lit.dev/playground/" target="_blank" rel="nofollow">🔥 Learn Lit</a></li>
-        <li><a href="https://hax.psu.edu" target="_blank">🧙 HAX The Web @ Penn State</a></li>
+        <li>Web Components</li>
+        <li>Lit + DDD</li>
+        <li>Accessibility</li>
       </ul>
-      <h2>Join and Share HAX</h2>
-      <ul>
-        <li><a href="https://github.com/haxtheweb/issues/issues" target="_blank" rel="nofollow">🔮 Ideas to HAX Harder, Better, Faster, Stronger</a></li>
-        <li><a href="https://bit.ly/hax-the-linkedin" target="_blank" rel="nofollow">👔 Share on LinkedIn</a></li>
-        <li><a href="https://bit.ly/hax-the-x" target="_blank" rel="nofollow">🧵 Tweet on X</a></li>
-        <li><a href="https://bit.ly/hax-discord" target="_blank" rel="nofollow">💬 Join Community</a></li>
-      </ul>
-      <h2>Learn the languages and tools</h2>
-      <ul>
-        <li><a href="https://w3schools.com" target="_blank" rel="nofollow">🌐 Learn HTML</a></li>
-        <li><a href="https://web.dev/learn/css/" target="_blank" rel="nofollow">🎨 Learn CSS</a></li>
-        <li><a href="http://Javascript.info" target="_blank" rel="nofollow">💻 Learn JavaScript (JS)</a></li>
-        <li><a href="https://gitimmersion.com" target="_blank" rel="nofollow">🦺 Learn Git / Github</a></li>
-        <li><a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/" target="_blank" rel="nofollow">📦 Learn NPM</a></li>
-        <li><a href="http://learnux.io" target="_blank" rel="nofollow">📐 Learn UX / UI development</a></li>
-      </ul>
-      <h2>Find purpose and inspiration</h2>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=eC7xzavzEKY" target="_blank" rel="nofollow">🐟 This is Water - David Foster Wallace</a></li>
-        <li><a href="https://www.youtube.com/watch?v=kYfNvmF0Bqw" target="_blank" rel="nofollow">🏗️ Secrets of Life - Steve Jobs</a></li>
-        <li><strong>💡 <em>Never. Stop. Innovating.</em></strong></li>
-      </ul>
-    </div>
-  </details>
+      <simple-cta href="#screen-3">See Work →</simple-cta>
+    </portfolio-screen>
+
+    <portfolio-screen id="screen-3" title="Projects" accent="3">
+      <h1>Projects</h1>
+      <p>Link to GitHub &amp; live demos…</p>
+    </portfolio-screen>
+
+    <portfolio-screen id="screen-4" title="Experience" accent="4">
+      <h1>Experience</h1>
+      <p>Where you’ve worked &amp; what you built…</p>
+    </portfolio-screen>
+
+    <portfolio-screen id="screen-5" title="Contact" accent="5">
+      <h1>Contact</h1>
+      <p>Embed a form iframe or list email/social.</p>
+    </portfolio-screen>
+  </portfolio-very-theme>
+
+  <script>
+    // smooth scroll on click
+    document.querySelectorAll('#slide-nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById(link.dataset.id)
+          .scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    // highlight nav item on scroll
+    const obsOpts = { root: document.getElementById('slideshow'), threshold: 0.6 };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(({ target, isIntersecting }) => {
+        document.querySelectorAll('#slide-nav a')
+          .forEach(a => a.classList.toggle('active', a.dataset.id === target.id && isIntersecting));
+      });
+    }, obsOpts);
+    document.querySelectorAll('.slides section').forEach(sec => observer.observe(sec));
+  </script>
 </body>
 </html>
