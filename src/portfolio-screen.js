@@ -28,6 +28,11 @@ export class PortfolioScreen extends DDDSuper(LitElement) {
     :host([accent="5"]) { background-color:var(--ddd-accent-5); }
   `]; }
 
+  // add HAX metadata reference
+  static get haxProperties() {
+    return new URL('../lib/portfolio-screen.haxProperties.json', import.meta.url).href;
+  }
+
   render() {
     return html`<slot></slot>`;
   }

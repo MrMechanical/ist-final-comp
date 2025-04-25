@@ -1,0 +1,21 @@
+{
+  "tag": "portfolio-very-theme",
+  "api": "1.0.0",
+  "gizmo": {
+    "title": "Portfolio Very Theme",
+    "description": "Wrapper for portfolio screens with nav & scroll button",
+    "icon": "icons:view-carousel"
+  },
+  "settings": {
+    "configure": []
+  },
+  "saveOptions": {
+    "wipeSlot": false
+  },
+  "demoSchema": [
+    {
+      "tag": "portfolio-very-theme",
+      "content": "<portfolio-screen title='Example' accent='1'></portfolio-screen>"
+    }
+  ]
+}

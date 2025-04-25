@@ -1,0 +1,26 @@
+{
+  "tag": "portfolio-screen",
+  "api": "1.0.0",
+  "gizmo": {
+    "title": "Portfolio Screen",
+    "description": "Full screen section",
+    "icon": "icons:fullscreen"
+  },
+  "settings": {
+    "configure": [
+      { "property": "title", "title": "Title", "inputMethod": "textfield" },
+      { "property": "accent", "title": "Accent Variant", "inputMethod": "number" }
+    ]
+  },
+  "saveOptions": {
+    "wipeSlot": false,
+    "unsetAttributes": []
+  },
+  "demoSchema": [
+    {
+      "tag": "portfolio-screen",
+      "properties": { "title": "My Title", "accent": "1" },
+      "content": "<h1>Content</h1>"
+    }
+  ]
+}

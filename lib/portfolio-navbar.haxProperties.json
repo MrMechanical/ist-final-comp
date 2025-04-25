@@ -1,0 +1,21 @@
+{
+  "tag": "portfolio-navbar",
+  "api": "1.0.0",
+  "gizmo": {
+    "title": "Portfolio Navbar",
+    "description": "Fixed nav for portfolio screens",
+    "icon": "icons:menu"
+  },
+  "settings": {
+    "configure": []
+  },
+  "saveOptions": {
+    "wipeSlot": false
+  },
+  "demoSchema": [
+    {
+      "tag": "portfolio-navbar",
+      "content": ""
+    }
+  ]
+}

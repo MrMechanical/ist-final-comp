@@ -4,9 +4,9 @@
 <head>
   <base href="/">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, viewport-fit=cover" />
   <meta name="Description" content="Demonstration for ist-final-comp">
-
+<!-- make everything webcomponents reference the videos for the nav bar visually appealling (change contrast text) responsive -->
   <style>
     :root, html, body {
       margin: 0;
@@ -43,8 +43,15 @@
       align-items: center;
       font-size: 2rem;
     }
-    /* replace slide‐specific backgrounds on portfolio-screen, not .slides section */
-    portfolio-screen:nth-of-type(1) { background-color: navy; }
+    portfolio-screen:nth-of-type(1) {
+      background-color: navy;
+      color: white;
+    }
+    /* ensure heading and paragraph inherit white */
+    portfolio-screen:nth-of-type(1) h1,
+    portfolio-screen:nth-of-type(1) p {
+      color: white;
+    }
     portfolio-screen:nth-of-type(2) { background-color: #0077be; }      /* ocean blue */
     portfolio-screen:nth-of-type(3) { background-color: #6699cc; }      /* grey blue */
     portfolio-screen:nth-of-type(4) { background-color: lightgrey; }
@@ -85,49 +92,101 @@
     body {
       margin-top: 0;
     }
+
+    /* add top margin and translucent box around nav */
+    portfolio-very-theme nav,
+    #slide-nav {
+      margin-top: 2rem;                      /* space above the nav */
+      padding: var(--ddd-spacing-2);         /* inner padding */
+      background-color: rgba(255,255,255,0.5); /* 50% opacity */
+      border: 2px solid rgba(255,255,255,0.5); /* light translucent border */
+      border-radius: var(--ddd-radius-lg);   /* rounded corners */
+    }
+
+    /* new about photo styling */
+    .about-photo {
+      max-width: 20%;
+      border-radius: var(--ddd-radius-lg);
+      margin-top: var(--ddd-spacing-2);
+    }
+
+    /* large version for second image */
+    .about-photo-large {
+      max-width: 20%;
+      border-radius: var(--ddd-radius-lg);
+      margin-top: var(--ddd-spacing-2);
+    }
+
+    /* make first slide a positioning context */
+    portfolio-screen#screen-1 {
+      position: relative;
+    }
+    portfolio-screen#screen-1 .star {
+      position: absolute;
+      top: var(--ddd-spacing-6);   /* moved lower */
+      left: var(--ddd-spacing-2);
+      font-size: 10rem;
+      color: gold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    portfolio-screen#screen-1 .star:hover {
+      transform: scale(100);
+    }
   </style>
   <title>ist-final-comp</title>
 </head>
 
 <body>
 
+  <script type="module" src="./src/portfolio-navbar.js"></script>
   <script type="module" src="./src/portfolio-very-theme.js"></script>
   <script type="module" src="./src/portfolio-screen.js"></script>
   <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/simple-cta/simple-cta.js"></script>
-    <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/scroll-button/scroll-button.js"></script>
-  
+  <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/scroll-button/scroll-button.js"></script>
+  <script type="module" src="https://cdn.hax.cloud/hax/hax-app.js"></script>
 
-  <portfolio-very-theme>
-    <portfolio-screen id="screen-1" title="About" accent="1">
-      <h1>About Me</h1>
-      <p>Brief intro about you…</p>
-    </portfolio-screen>
+  <hax-app>
+    <!-- top nav replaced by web component -->
+    <portfolio-navbar></portfolio-navbar>
+    <portfolio-very-theme>
+      <portfolio-screen id="screen-1" title="About" accent="1">
+        <!-- added star -->
+        <div class="star">★</div>
+        <h1>About Me</h1>
+        <p>LEVEL 100000000000000 horse hacker. Wanted by ALL federal agencies</p>
+        <!-- first small image -->
+        <img class="about-photo" src="https://www.equisupermarket.co.uk/cdn/shop/articles/photo-1551884831-bbf3cdc6469e.jpg?v=1626246404" alt="Silly photo">
+        <!-- second, much larger -->
+        <img class="about-photo-large" src="https://www.secretservice.gov/sites/default/files/inline-images/Screenshot-2025-03-06-at-10.13.05-AM.png" alt="Secret Service screenshot">
+      </portfolio-screen>
 
-    <portfolio-screen id="screen-2" title="Skills" accent="2">
-      <h1>Skills</h1>
-      <ul>
-        <li>Web Components</li>
-        <li>Lit + DDD</li>
-        <li>Accessibility</li>
-      </ul>
-      <simple-cta href="#screen-3">See Work →</simple-cta>
-    </portfolio-screen>
+      <portfolio-screen id="screen-2" title="Skills" accent="2">
+        <h1>Skills</h1>
+        <ul>
+          <li>HORSING AROUND</li>
+          <li>Lit + DDD</li>
+          <li>C#, C++, Java, Javascript, Swift, Objective C, Python, Rust, HLSL, GLSL, MQL5, Solidity</li>
+        </ul>
+        <simple-cta href="#screen-3">See Work →</simple-cta>
+      </portfolio-screen>
 
-    <portfolio-screen id="screen-3" title="Projects" accent="3">
-      <h1>Projects</h1>
-      <p>Link to GitHub &amp; live demos…</p>
-    </portfolio-screen>
+      <portfolio-screen id="screen-3" title="Projects" accent="3">
+        <h1>Projects</h1>
+        <p>Link to GitHub &amp; live demos…</p>
+      </portfolio-screen>
 
-    <portfolio-screen id="screen-4" title="Experience" accent="4">
-      <h1>Experience</h1>
-      <p>Where you’ve worked &amp; what you built…</p>
-    </portfolio-screen>
+      <portfolio-screen id="screen-4" title="Experience" accent="4">
+        <h1>Experience</h1>
+        <p>Where you’ve worked &amp; what you built…</p>
+      </portfolio-screen>
 
-    <portfolio-screen id="screen-5" title="Contact" accent="5">
-      <h1>Contact</h1>
-      <p>Embed a form iframe or list email/social.</p>
-    </portfolio-screen>
-  </portfolio-very-theme>
+      <portfolio-screen id="screen-5" title="Contact" accent="5">
+        <h1>Contact</h1>
+        <p>Embed a form iframe or list email/social.</p>
+      </portfolio-screen>
+    </portfolio-very-theme>
+  </hax-app>
 
   <script>
     // smooth scroll on click
