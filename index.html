@@ -96,7 +96,7 @@
     /* add top margin and translucent box around nav */
     portfolio-very-theme nav,
     #slide-nav {
-      margin-top: 2rem;                      /* space above the nav */
+      margin-top: 4rem;                      /* space above the nav */
       padding: var(--ddd-spacing-2);         /* inner padding */
       background-color: rgba(255,255,255,0.5); /* 50% opacity */
       border: 2px solid rgba(255,255,255,0.5); /* light translucent border */
@@ -105,16 +105,17 @@
 
     /* new about photo styling */
     .about-photo {
+      display: block;
       max-width: 20%;
-      border-radius: var(--ddd-radius-lg);
-      margin-top: var(--ddd-spacing-2);
+      margin-top: 20vh;
     }
 
     /* large version for second image */
     .about-photo-large {
+      display: block;
       max-width: 20%;
       border-radius: var(--ddd-radius-lg);
-      margin-top: var(--ddd-spacing-2);
+      margin-top: 0;
     }
 
     /* make first slide a positioning context */
@@ -132,6 +133,36 @@
     }
     portfolio-screen#screen-1 .star:hover {
       transform: scale(100);
+    }
+
+    /* lower all slides’ content */
+    portfolio-screen {
+      padding-top: var(--ddd-spacing-6);
+    }
+
+    /* lower headings & paragraphs */
+    portfolio-screen h1,
+    portfolio-screen p {
+      margin-top: var(--ddd-spacing-4);
+    }
+
+    /* enlarge all portfolio text */
+    portfolio-screen {
+      font-size: var(--ddd-font-size-xl, 2.5rem);
+    }
+
+    /* layout for about section: images + text side by side */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      gap: var(--ddd-spacing-4);
+    }
+    .about-content img,
+    .about-content p {
+      margin-top: 0;           /* override previous top margins */
+      max-width: 30%;          /* adjust as needed */
     }
   </style>
   <title>ist-final-comp</title>
@@ -151,39 +182,60 @@
     <portfolio-navbar></portfolio-navbar>
     <portfolio-very-theme>
       <portfolio-screen id="screen-1" title="About" accent="1">
-        <!-- added star -->
         <div class="star">★</div>
+        <div class="star-label">Portfolio</div>
         <h1>About Me</h1>
-        <p>LEVEL 100000000000000 horse hacker. Wanted by ALL federal agencies</p>
-        <!-- first small image -->
-        <img class="about-photo" src="https://www.equisupermarket.co.uk/cdn/shop/articles/photo-1551884831-bbf3cdc6469e.jpg?v=1626246404" alt="Silly photo">
-        <!-- second, much larger -->
-        <img class="about-photo-large" src="https://www.secretservice.gov/sites/default/files/inline-images/Screenshot-2025-03-06-at-10.13.05-AM.png" alt="Secret Service screenshot">
+        <p></p>
+        <p></p>
+        <p></p>
+        <!-- group images and text -->
+        <div class="about-content">
+          <img class="about-photo" src="https://www.equisupermarket.co.uk/cdn/shop/articles/photo-1551884831-bbf3cdc6469e.jpg?v=1626246404" alt="Professional headshot">
+          <img class="about-photo-large" src="https://www.secretservice.gov/sites/default/files/inline-images/Screenshot-2025-03-06-at-10.13.05-AM.png" alt="Technical demonstration">
+          <p>As a seasoned software engineer with a passion for building scalable web applications and crafting engaging user experiences.</p>
+        </div>
       </portfolio-screen>
-
       <portfolio-screen id="screen-2" title="Skills" accent="2">
         <h1>Skills</h1>
         <ul>
-          <li>HORSING AROUND</li>
-          <li>Lit + DDD</li>
-          <li>C#, C++, Java, Javascript, Swift, Objective C, Python, Rust, HLSL, GLSL, MQL5, Solidity</li>
+          <li>JavaScript & TypeScript (Lit, React)</li>
+          <li>Node.js & Express</li>
+          <li>RESTful API design</li>
+          <li>Responsive UI/UX development</li>
+          <li>Python & Data Analysis</li>
+          <li>DevOps & CI/CD pipelines</li>
+          <li>Agile Methodologies & Team Leadership</li>
         </ul>
-        <simple-cta href="#screen-3">See Work →</simple-cta>
+        <simple-cta href="#screen-3">Explore Projects →</simple-cta>
       </portfolio-screen>
 
       <portfolio-screen id="screen-3" title="Projects" accent="3">
         <h1>Projects</h1>
-        <p>Link to GitHub &amp; live demos…</p>
+        <p>Highlights of my work include:</p>
+        <ul>
+          <li><a href="https://github.com/username/project-analytics" target="_blank">Analytics Dashboard</a> – A real-time data visualization tool.</li>
+          <li><a href="https://github.com/username/project-collab" target="_blank">Collaboration Platform</a> – A web app for team collaboration and file sharing.</li>
+        </ul>
       </portfolio-screen>
 
       <portfolio-screen id="screen-4" title="Experience" accent="4">
         <h1>Experience</h1>
-        <p>Where you’ve worked &amp; what you built…</p>
+        <ul>
+          <li><strong>Senior Software Engineer</strong>, XYZ Corp (2020–Present)</li>
+          <li><strong>Software Engineer</strong>, ABC Inc (2015–2020)</li>
+          <li><strong>Junior Developer</strong>, TechStart (2012–2015)</li>
+        </ul>
       </portfolio-screen>
 
       <portfolio-screen id="screen-5" title="Contact" accent="5">
         <h1>Contact</h1>
-        <p>Embed a form iframe or list email/social.</p>
+        <p>Feel free to reach out for collaborations, inquiries, or to learn more about my work. I look forward to connecting with you.</p>
+        <!-- Elfsight Contact Form | Untitled Contact Form -->
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div
+          class="elfsight-app-334d9f44-a213-416e-a23e-7dfb4ebbeded"
+          data-elfsight-app-lazy
+        ></div>
       </portfolio-screen>
     </portfolio-very-theme>
   </hax-app>

@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { DDDSuper } from '@haxtheweb/d-d-d/d-d-d.js'; // added missing import
 
 export class PortfolioNavbar extends DDDSuper(LitElement) {
   static get tag() { return 'portfolio-navbar'; }
@@ -7,19 +8,16 @@ export class PortfolioNavbar extends DDDSuper(LitElement) {
       :host { display:block; }
       nav {
         position: fixed;
-        top: var(--ddd-spacing-2);
+        top: 20vh;                            /* 1/5 down the page */
         left: var(--ddd-spacing-2);
         right: var(--ddd-spacing-2);
         display: flex;
         justify-content: center;
         padding: var(--ddd-spacing-2);
         background-color: rgba(255,255,255,0.5);
-        border: 2px solid rgba(255,255,255,0.5);
-        border-radius: var(--ddd-radius-lg);
+        border: none;
+        border-radius: 0;
         z-index: 100;
-      }
-      nav.black {
-        background: black;
       }
       nav a {
         margin: 0 var(--ddd-spacing-2);
@@ -46,20 +44,6 @@ export class PortfolioNavbar extends DDDSuper(LitElement) {
           </a>`)}
       </nav>
     `;
-  }
-  firstUpdated() {
-    const navEl = this.shadowRoot.querySelector('nav');
-    const slide1 = document.getElementById('screen-1');
-    if (slide1) {
-      new IntersectionObserver(
-        entries => {
-          entries.forEach(({ isIntersecting }) => {
-            navEl.classList.toggle('black', isIntersecting);
-          });
-        },
-        { threshold: 0.6 }
-      ).observe(slide1);
-    }
   }
   _onClick(e) {
     e.preventDefault();
