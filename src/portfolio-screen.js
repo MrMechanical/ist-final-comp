@@ -26,6 +26,12 @@ export class PortfolioScreen extends DDDSuper(LitElement) {
     :host([accent="3"]) { background-color:var(--ddd-accent-3); }
     :host([accent="4"]) { background-color:var(--ddd-accent-4); }
     :host([accent="5"]) { background-color:var(--ddd-accent-5); }
+    :host(#screen-1) { 
+      background-color: black;
+    }
+    .wrapper {
+      margin-top: var(--ddd-spacing-20);
+      padding: var(--ddd-spacing-20);
   `]; }
 
   // add HAX metadata reference
@@ -34,7 +40,7 @@ export class PortfolioScreen extends DDDSuper(LitElement) {
   }
 
   render() {
-    return html`<slot></slot>`;
+    return html`<div class="wrapper"><slot></slot></div>`;
   }
 }
 

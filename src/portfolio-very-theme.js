@@ -1,5 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { DDDSuper } from '@haxtheweb/d-d-d/d-d-d.js';
+
+
+import '@haxtheweb/scroll-button/scroll-button.js';
 // import 'scroll-button';
 
 export class PortfolioVeryTheme extends DDDSuper(LitElement) {
@@ -13,6 +16,12 @@ export class PortfolioVeryTheme extends DDDSuper(LitElement) {
       ::slotted(portfolio-screen) {
         display: block;
       }
+      .scroll-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
     `
   ]; }
 
@@ -23,8 +32,15 @@ export class PortfolioVeryTheme extends DDDSuper(LitElement) {
 
   render() {
     return html`
-      <slot></slot>
-      <scroll-button></scroll-button>
+    <div>
+      <slot>
+
+        </slot>
+        <div class="scroll-button">
+
+          <scroll-button></scroll-button>
+        </div>
+    </div>
     `;
   }
 }

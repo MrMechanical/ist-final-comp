@@ -11,6 +11,7 @@
     :root, html, body {
       margin: 0;
       padding: 0;
+      font-size: clamp(16px, 2vw, 20px);
     }
     #demo {
       margin: var(--ddd-spacing-2);
@@ -73,12 +74,12 @@
     #slide-nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #333;
+      color: #000;              /* changed from #333 to black */
       padding: 0.5rem;
     }
     #slide-nav a.active {
       font-weight: bold;
-      border-bottom: 2px solid #333;
+      border-bottom: 2px solid #000;  /* changed from #333 to black */
     }
     body {
       margin-top: 3rem; /* leave space for fixed nav */
@@ -129,7 +130,7 @@
       font-size: 10rem;
       color: gold;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 10s ease;
     }
     portfolio-screen#screen-1 .star:hover {
       transform: scale(100);
@@ -146,26 +147,48 @@
       margin-top: var(--ddd-spacing-4);
     }
 
-    /* enlarge all portfolio text */
+    /* enlarge all portfolio text responsive */
     portfolio-screen {
-      font-size: var(--ddd-font-size-xl, 2.5rem);
+      font-size: clamp(1.5rem, 4vw, var(--ddd-font-size-xl, 2.5rem));
     }
 
     /* layout for about section: images + text side by side */
     .about-content {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      flex-direction: row;
       justify-content: space-around;
       gap: var(--ddd-spacing-4);
+      align-items: center;           /* added: vertically center items */
     }
-    .about-content img,
-    .about-content p {
-      margin-top: 0;           /* override previous top margins */
-      max-width: 30%;          /* adjust as needed */
+
+    /* override individual image sizing & remove extra top margin */
+    .about-photo,
+    .about-photo-large {
+      max-width: 45%;                /* increase image width */
+      margin: 0;                     /* reset margins */
     }
+
+    /* stack on small screens */
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .about-photo,
+      .about-photo-large,
+      .about-content p {
+        max-width: 100%;
+      }
+    }
+
+    /* responsive typography */
+    h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); }
+    h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+    h3 { font-size: clamp(1.125rem, 3vw, 1.75rem); }
+    p  { font-size: clamp(1rem, 2.5vw, 1.125rem); }
   </style>
   <title>ist-final-comp</title>
+  <script type="module" src="./src/portfolio-footer.js"></script>
 </head>
 
 <body>
@@ -190,8 +213,11 @@
         <p></p>
         <!-- group images and text -->
         <div class="about-content">
-          <img class="about-photo" src="https://www.equisupermarket.co.uk/cdn/shop/articles/photo-1551884831-bbf3cdc6469e.jpg?v=1626246404" alt="Professional headshot">
-          <img class="about-photo-large" src="https://www.secretservice.gov/sites/default/files/inline-images/Screenshot-2025-03-06-at-10.13.05-AM.png" alt="Technical demonstration">
+          <div class="photos">
+
+            <img class="about-photo" src="https://www.equisupermarket.co.uk/cdn/shop/articles/photo-1551884831-bbf3cdc6469e.jpg?v=1626246404" alt="Professional headshot">
+            <img class="about-photo-large" src="https://www.secretservice.gov/sites/default/files/inline-images/Screenshot-2025-03-06-at-10.13.05-AM.png" alt="Technical demonstration">
+          </div>
           <p>As a seasoned software engineer with a passion for building scalable web applications and crafting engaging user experiences.</p>
         </div>
       </portfolio-screen>
@@ -259,5 +285,6 @@
     }, obsOpts);
     document.querySelectorAll('.slides section').forEach(sec => observer.observe(sec));
   </script>
+  <portfolio-footer></portfolio-footer>
 </body>
 </html>
