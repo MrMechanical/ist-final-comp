@@ -8,7 +8,7 @@
   },
   "settings": {
     "configure": [
-      { "property": "title", "title": "Title", "inputMethod": "textfield" }
+
     ]
   },
   "saveOptions": {

@@ -25,14 +25,7 @@
     },
     "settings": {
         "configure": [
-            {
-                "property": "title",
-                "title": "Title",
-                "description": "",
-                "inputMethod": "textfield",
-                "icon": "editor:title",
-                "required": true
-            }
+            
         ]
     },
     "saveOptions": {
