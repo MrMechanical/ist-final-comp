@@ -27,7 +27,7 @@
         "test:watch": "web-test-runner test/**/*.test.js --node-resolve --watch"
     },
     "dependencies": {
-        "@haxtheweb/d-d-d": "^10.0.2",
+        "@haxtheweb/d-d-d": "^9.0.1",
         "@haxtheweb/i18n-manager": "^10.0.2",
         "@haxtheweb/scroll-button": "^10.0.2",
         "@haxtheweb/simple-cta": "^10.0.2",
