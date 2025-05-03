@@ -30,6 +30,20 @@ export class PortfolioNavbar extends DDDSuper(LitElement) {
         font-weight: bold;
         border-bottom: 2px solid var(--ddd-theme-primary);
       }
+      /* mobile wrap */
+      @media (max-width: 600px) {
+        nav {
+          position: static;
+          flex-wrap: wrap;
+          overflow-x: auto;
+          justify-content: space-around;
+        }
+        nav a {
+          flex: 1 0 auto;
+          margin: var(--ddd-spacing-1);
+          padding: var(--ddd-spacing-1);
+        }
+      }
     `;
   }
   static get haxProperties() {
