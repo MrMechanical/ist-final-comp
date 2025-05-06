@@ -32,6 +32,7 @@ export class PortfolioScreen extends DDDSuper(LitElement) {
     .wrapper {
       margin-top: var(--ddd-spacing-20);
       padding: var(--ddd-spacing-20);
+    }
   `]; }
 
   // add HAX metadata reference
