@@ -1,7 +1,8 @@
 import { LitElement, html, css } from 'lit';
-import { DDDSuper } from 'd-d-d';
+import { DDDSuper } from '@haxtheweb/d-d-d/d-d-d.js';
 
-//import '@haxtheweb/scroll-button/scroll-button.js';
+
+import '@haxtheweb/scroll-button/scroll-button.js';
 // import 'scroll-button';
 
 export class PortfolioVeryTheme extends DDDSuper(LitElement) {

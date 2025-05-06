@@ -8,7 +8,8 @@
   },
   "settings": {
     "configure": [
-
+      { "property": "title", "title": "Title", "inputMethod": "textfield" },
+      { "property": "accent", "title": "Accent Variant", "inputMethod": "number" }
     ]
   },
   "saveOptions": {

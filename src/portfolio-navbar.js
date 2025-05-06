@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import { DDDSuper } from '@d-d-d';
+import { DDDSuper } from '@haxtheweb/d-d-d/d-d-d.js';
 import './portfolio-nav-item.js'; // ← new
 
 export class PortfolioNavbar extends DDDSuper(LitElement) {

@@ -7,11 +7,7 @@
     "icon": "icons:menu"
   },
   "settings": {
-    "configure": [
-      {
-        "inputMethod": "select"
-      }
-    ]
+    "configure": []
   },
   "saveOptions": {
     "wipeSlot": false
